@@ -6,28 +6,29 @@ namespace Pulsr
 	App::App( int argc, char* argv[] )
 		: _windowManager(std::make_unique<Window::ManagerImpl>())
 	{
-		DLOGEVT(INFO, CONSTRUCT);
+		DLOG(DIAG);
 	}
 
 	App::~App()
 	{
-		DLOGEVT(INFO, DESTRUCT);
+		DLOG(DIAG);
 		Dispose();
 	}
 
 	void App::Dispose()
 	{
-		DLOGEVT(INFO, DISPOSE);
+		DLOG(DIAG);
 	}
 
 	int App::Start()
 	{
+		DLOG(DIAG);
 		_windowManager->Create("MainWindow");
 		while(_windowManager->HasWork())
 		{
 			_windowManager->Update();
 		}
 		
-		return 0;
+		return EXIT_SUCCESS;
 	}
 }

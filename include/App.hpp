@@ -1,6 +1,7 @@
 #ifndef __PULSR_APP__H__
 #define __PULSR_APP__H__
 
+#include <cstdlib>
 #include <Grawlog/Logger.hpp>
 #include <memory>
 #include <Pulsr.Core/Window/Manager.hpp>
