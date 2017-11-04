@@ -21,10 +21,14 @@ namespace Pulsr
 	int App::Start()
 	{
 		DLOG(DIAG);
-		
-		while(true)
+
+		auto x = 10;
+		while(x > 0)
 		{
 			DLOG(INFO) << " .. tick .. ";
+			x--;
 		}
+
+		return EXIT_SUCCESS;
 	}
 }

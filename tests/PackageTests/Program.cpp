@@ -1,7 +1,15 @@
-#include <Grawlog/Logger.hpp>
+#include <Pulsr/App.hpp>
+
+class SimpleClient : public Pulsr::App
+{
+public:
+	SimpleClient(int argc, char* argv[])
+		: Pulsr::App(argc, argv)
+	{
+	}
+};
 
 int main(int argc, char* argv[])
 {
-	LOG(INFO) << "Hello, Grawlog";
-	return 0;
+	return SimpleClient(argc, argv).Start();
 }
