@@ -15,7 +15,7 @@ class GrawlogConan(ConanFile):
     generators = "cmake"
     exports_sources = "*"
 
-    requires = "gtest/1.8.0@conan/stable", "Grawlog/1.0@local/testing"
+    requires = "gtest/1.8.0@conan/stable", "Grawlog/1.0@strootje/conan"
 
     def configure(self):
         self.options["gtest"].shared = self.options.shared
