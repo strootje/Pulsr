@@ -1,11 +1,11 @@
 from conans import ConanFile, CMake
 
-class GrawlogConan(ConanFile):
+class PulsrConan(ConanFile):
     name = "Pulsr"
     version = "1.0"
 
     license = "MPL-2.0"
-    description = "Sane Logging Library for cpp"
+    description = "Pulsr Game Engine - Main Module"
     url = "https://github.com/strootje/pulsr"
 
     settings = "os", "compiler", "build_type", "arch"
@@ -15,11 +15,13 @@ class GrawlogConan(ConanFile):
     generators = "cmake"
     exports_sources = "*"
 
-    requires = "gtest/1.8.0@conan/stable", "Grawlog/1.0@strootje/conan"
+    requires = "gtest/1.8.0@conan/stable", "Grawlog/1.0@strootje/stable", "Pulsr.Core/1.0@strootje/stable", "Pulsr.Window/1.0@strootje/stable"
 
     def configure(self):
         self.options["gtest"].shared = self.options.shared
         self.options["Grawlog"].shared = self.options.shared
+        self.options["Pulsr.Core"].shared = self.options.shared
+        self.options["Pulsr.Window"].shared = self.options.shared
 
     def build(self):
         cmake = CMake(self)

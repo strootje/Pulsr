@@ -1,7 +1,7 @@
 
 add_library(${TARGET_NAME} ${TARGET_SOURCES})
 target_include_directories(${TARGET_NAME} PRIVATE ${DIR_INCLUDE})
-target_link_libraries(${TARGET_NAME} CONAN_PKG::Grawlog)
+target_link_libraries(${TARGET_NAME} CONAN_PKG::Grawlog CONAN_PKG::Pulsr.Core CONAN_PKG::Pulsr.Window)
 
 install(TARGETS ${TARGET_NAME}
 	RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin

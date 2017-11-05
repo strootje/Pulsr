@@ -1,9 +1,9 @@
 #include <Pulsr/App.hpp>
 
-class SimpleClient : public Pulsr::App
+class TestApp : public Pulsr::App
 {
 public:
-	SimpleClient(int argc, char* argv[])
+	TestApp(int argc, char* argv[])
 		: Pulsr::App(argc, argv)
 	{
 	}
@@ -11,5 +11,6 @@ public:
 
 int main(int argc, char* argv[])
 {
-	return SimpleClient(argc, argv).Start();
+	TestApp app(argc, argv);
+	return app.Start();
 }

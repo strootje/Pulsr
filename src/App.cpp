@@ -1,8 +1,10 @@
 #include "./App.hpp"
+#include <Pulsr.Window/Manager.hpp>
 
 namespace Pulsr
 {
 	App::App( int argc, char* argv[] )
+		: _windowManager(std::make_unique<Window::ManagerImpl>())
 	{
 		DLOG(DIAG);
 	}
@@ -21,14 +23,15 @@ namespace Pulsr
 	int App::Start()
 	{
 		DLOG(DIAG);
-
-		auto x = 10;
-		while(x > 0)
+		
+		int x = 10;
+		_windowManager->Create("MainWindow");
+		while(_windowManager->HasWork() && x > 0)
 		{
-			DLOG(INFO) << " .. tick .. ";
+			_windowManager->Update();
 			x--;
 		}
-
+		
 		return EXIT_SUCCESS;
 	}
 }
