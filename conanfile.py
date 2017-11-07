@@ -1,6 +1,6 @@
 from conans import ConanFile, CMake
 
-class PulsrConan(ConanFile):
+class BuildConan(ConanFile):
     name = "Pulsr"
     version = "1.0"
 
