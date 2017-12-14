@@ -1,4 +1,4 @@
-
+# setup sources
 set(TARGET_SOURCES
 	${DIR_SRC}/App.cpp
 	${DIR_SRC}/AppContainerBuilder.cpp
@@ -6,7 +6,7 @@ set(TARGET_SOURCES
 
 add_library(${TARGET_NAME} ${TARGET_SOURCES})
 target_include_directories(${TARGET_NAME} PRIVATE ${DIR_INCLUDE})
-target_link_libraries(${TARGET_NAME} CONAN_PKG::Grawlog CONAN_PKG::Hypodermic CONAN_PKG::Pulsr.Core CONAN_PKG::Pulsr.Kernel CONAN_PKG::Pulsr.Windowing)
+target_link_libraries(${TARGET_NAME} CONAN_PKG::Grawlog CONAN_PKG::Guardog CONAN_PKG::Hypodermic CONAN_PKG::Pulsr.Core CONAN_PKG::Pulsr.Kernel CONAN_PKG::Pulsr.Drawing)
 
 install(TARGETS ${TARGET_NAME}
 	RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin

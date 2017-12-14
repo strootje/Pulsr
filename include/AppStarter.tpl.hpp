@@ -2,6 +2,8 @@
 #define __PULSR_APPSTARTERTPL__H__
 
 #include <Grawlog/Logger.hpp>
+#include <cstdlib>
+#include <exception>
 
 namespace Pulsr
 {
@@ -14,7 +16,16 @@ namespace Pulsr
 		builder.registerType<DerivedApp>().as<App>();
 		builder.updateContainer(*_container);
 
-		return _container->resolve<App>()->Start(argc, argv);
+		try
+		{
+			return _container->resolve<App>()
+				->Start(argc, argv);
+		}
+		catch(const std::exception& exc)
+		{
+			LOG(FATAL) << exc.what();
+			return EXIT_FAILURE;
+		}
 	}
 }
 

@@ -1,22 +1,25 @@
 #include "./AppContainerBuilder.hpp"
 #include <Grawlog/Logger.hpp>
 #include <Pulsr.Kernel/ContainerBuilder.hpp>
-#include <Pulsr.Windowing/ContainerBuilder.hpp>
+#include <Pulsr.Drawing/ContainerBuilder.hpp>
 
 namespace Pulsr
 {
 	AppContainerBuilder::AppContainerBuilder()
 	{
 		DLOG(DIAG);
-		LOG(INFO) << "Start :: Building Dependency Container";
+		LOG(INFO) << "Building Dependency Container :: Start";
 
-		updateContainer(*Kernel::ContainerBuilder().build());
-		updateContainer(*Windowing::ContainerBuilder().build());
+		addRegistrations(Kernel::ContainerBuilder());
+		LOG(INFO) << "Building Dependency Container :: (1/2) Kernel";
+
+		addRegistrations(Drawing::ContainerBuilder());
+		LOG(INFO) << "Building Dependency Container :: (2/2) Drawing";
 	}
 		
 	AppContainerBuilder::~AppContainerBuilder()
 	{
 		DLOG(DIAG);
-		LOG(INFO) << "Done  :: Building Dependency Container";
+		LOG(INFO) << "Building Dependency Container :: Done";
 	}
 }

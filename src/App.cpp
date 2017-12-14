@@ -1,15 +1,22 @@
 #include "./App.hpp"
 #include <Grawlog/Logger.hpp>
+#include <Guardog/Guard.hpp>
 
 namespace Pulsr
 {
-	App::App( std::shared_ptr<Core::Window::Manager> windowManager )
+	App::App( std::shared_ptr<Core::Kernel::WindowManager> windowManager )
 		: _windowManager(windowManager)
+	{
+		DLOG(DIAG);
+		THROWIFNULL(windowManager);
+	}
+
+	App::~App()
 	{
 		DLOG(DIAG);
 	}
 
-	App::~App()
+	void App::Setup()
 	{
 		DLOG(DIAG);
 	}

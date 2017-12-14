@@ -1,7 +1,7 @@
 #ifndef __PULSR_APP__H__
 #define __PULSR_APP__H__
 
-#include <Pulsr.Core/Window/Manager.hpp>
+#include <Pulsr.Core/Kernel/WindowManager.hpp>
 #include <memory>
 
 namespace Pulsr
@@ -12,14 +12,14 @@ namespace Pulsr
 	class App
 	{
 	protected:
-		std::shared_ptr<Core::Window::Manager> _windowManager;
+		std::shared_ptr<Core::Kernel::WindowManager> _windowManager;
 
 	public:
 		/**
 		 * Constructor
 		 * \param[in]  windowManager  A WindowManager to rule them all
 		 */
-		App( std::shared_ptr<Core::Window::Manager> windowManager );
+		App( std::shared_ptr<Core::Kernel::WindowManager> windowManager );
 
 		/**
 		 * Destructor
@@ -30,7 +30,7 @@ namespace Pulsr
 		 * This method is called at the begin of the App::Start method
 		 * This allowed the users to init any stuff that needs initing.
 		 */
-		virtual void Setup() = 0;
+		virtual void Setup();
 
 		/**
 		 * Triggers the gameloop to start pulsing
